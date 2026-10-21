@@ -1,0 +1,39 @@
+{
+  "name": "opencode-gmi-auth",
+  "version": "0.1.0",
+  "description": "GMI Cloud provider for OpenCode and magpie: API key sign-in, live model catalog, per-token pricing",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": "./index.mjs",
+  "files": [
+    "index.mjs",
+    "catalog.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "magpie",
+    "gmi",
+    "gmi-cloud",
+    "provider",
+    "coding-agent"
+  ],
+  "license": "MIT",
+  "author": "Xuanwo",
+  "homepage": "https://github.com/Xuanwo/opencode-gmi-auth#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xuanwo/opencode-gmi-auth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xuanwo/opencode-gmi-auth/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/"
+  }
+}
