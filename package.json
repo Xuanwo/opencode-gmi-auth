@@ -34,6 +34,7 @@
     "node": ">=18"
   },
   "scripts": {
+    "prepublishOnly": "npm test",
     "test": "node --test test/"
   }
 }
