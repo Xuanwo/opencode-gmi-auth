@@ -107,34 +107,9 @@ export const GmiCloudAuthPlugin = async () => ({
         type: "api",
         label: "GMI Cloud API key",
         placeholder: "gmi-…",
-        // Validates the key by listing models; /v1/models answers 401 with
-        // "Invalid API key" when it is refused.
-        async authorize(inputs) {
-          const key = String(inputs?.key ?? inputs?.apiKey ?? "").trim();
-          if (!key) return { type: "failed", error: "No API key given" };
-          const headers = { authorization: `Bearer ${key}` };
-          const organization = String(inputs?.organization ?? "").trim();
-          if (organization) headers["x-organization-id"] = organization;
-          try {
-            const res = await fetch(`${BASE}/models`, { headers });
-            if (res.status === 401) {
-              return { type: "failed", error: "GMI Cloud refused the API key (401)" };
-            }
-            if (!res.ok) {
-              return { type: "failed", error: `GMI Cloud answered ${res.status}` };
-            }
-            return {
-              type: "success",
-              key,
-              metadata: { organization: organization || undefined },
-            };
-          } catch (error) {
-            return {
-              type: "failed",
-              error: `Could not reach GMI Cloud: ${error?.message ?? error}`,
-            };
-          }
-        },
+        // No authorize: an api method without prompts gets no inputs
+        // from magpie/OpenCode, so the key must be saved as-is; the first
+        // request validates it (GMI answers 401 when refused).
       },
     ],
     loader: async (getAuth) => {

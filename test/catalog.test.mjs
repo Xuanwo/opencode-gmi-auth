@@ -98,6 +98,7 @@ test("auth method is an api key and loader carries it", async () => {
   const plugin = await GmiCloudAuthPlugin();
   assert.equal(plugin.auth.provider, PROVIDER);
   assert.equal(plugin.auth.methods[0].type, "api");
+  assert.equal(plugin.auth.methods[0].authorize, undefined);
   const loader = await plugin.auth.loader(async () => ({ type: "api", key: "gmi-secret" }));
   assert.deepEqual(loader, {
     baseURL: "https://api.gmi-serving.com/v1",

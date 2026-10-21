@@ -1,6 +1,6 @@
 {
   "name": "opencode-gmi-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "GMI Cloud provider for OpenCode and magpie: API key sign-in, live model catalog, per-token pricing",
   "type": "module",
   "main": "./index.mjs",

@@ -40,9 +40,11 @@ Create an API key in the
 magpie plugin login gmicloud
 ```
 
-The plugin checks the key by listing models (`/v1/models`) before saving it.
-For multi-organization access, the API accepts an `X-Organization-ID` header;
-the loader forwards the organization saved with the sign-in.
+The key is saved as-is; the first request validates it. A refused key
+(GMI answers `401 Invalid API key`) marks the account so magpie asks for a
+new sign-in. For multi-organization access, the API accepts an
+`X-Organization-ID` header; the loader forwards the organization saved
+with the sign-in.
 
 ## Models
 
